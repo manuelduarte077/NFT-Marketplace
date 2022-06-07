@@ -1,4 +1,6 @@
-package com.getnerdify.nftmarketplace
+package com.getnerdify.nftmarketplace.models
+
+import com.getnerdify.nftmarketplace.R
 
 data class NFTCollection(
     val title: String,
