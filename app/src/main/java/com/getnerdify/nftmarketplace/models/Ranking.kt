@@ -1,5 +1,6 @@
-package com.getnerdify.nftmarketplace
+package com.getnerdify.nftmarketplace.models
 
+import com.getnerdify.nftmarketplace.R
 import java.util.*
 
 data class Ranking(
