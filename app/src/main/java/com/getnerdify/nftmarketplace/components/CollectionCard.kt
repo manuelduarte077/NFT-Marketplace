@@ -9,7 +9,8 @@ import androidx.compose.material.IconToggleButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.runtime.Composable
+import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -26,6 +27,9 @@ import com.getnerdify.nftmarketplace.ui.theme.NFTMarketplaceTheme
 
 @Composable
 fun CollectionCard(title: String, image: Painter, likes: Int) {
+
+
+    var isLiked by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -59,22 +63,23 @@ fun CollectionCard(title: String, image: Painter, likes: Int) {
             Text(
                 title,
                 fontSize = 13.sp,
+                color = Color.White,
                 fontWeight = FontWeight.SemiBold,
                 textAlign = TextAlign.Left
+
             )
             Spacer(modifier = Modifier.weight(1f))
             Row(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                IconToggleButton(checked = true, onCheckedChange = {
-                    // Change Value
-                }) {
-                    Icon(
-                        tint = Color.Red,
-                        imageVector = Icons.Filled.Favorite,
-                        contentDescription = "Favorite Button"
-                    )
+                IconToggleButton(checked = isLiked, onCheckedChange = {
+                    isLiked = !isLiked
+                }, modifier = Modifier.size(13.dp)) {
+                    Icon(tint = if (isLiked) Color.Red else Color(235, 235, 245).copy(0.6f),
+                        imageVector = if (isLiked)
+                            Icons.Filled.Favorite else Icons.Default.FavoriteBorder,
+                        contentDescription = "Favorite Button")
                 }
                 Text(
                     likes.toString(),
