@@ -1,6 +1,7 @@
 package com.getnerdify.nftmarketplace.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -40,6 +41,8 @@ fun CollectionCard(title: String, image: Painter, likes: Int) {
                 color = Color.White.copy(0.5f),
                 shape = RoundedCornerShape(30.dp)
             )
+            .clip(RoundedCornerShape(22.dp))
+            .background(Color.White.copy(0.2f))
     ) {
         Image(
             image,

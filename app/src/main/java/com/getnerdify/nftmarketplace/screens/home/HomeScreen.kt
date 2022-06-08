@@ -2,6 +2,8 @@ package com.getnerdify.nftmarketplace.screens.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -13,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.getnerdify.nftmarketplace.components.CategoryList
 import com.getnerdify.nftmarketplace.components.CollectionList
+import com.getnerdify.nftmarketplace.components.NFTList
 import com.getnerdify.nftmarketplace.ui.theme.NFTMarketplaceTheme
 
 @Composable
@@ -21,8 +24,11 @@ fun HomeScreen() {
         backgroundColor = Color(33, 17, 52)
     ) {
         Column(
-            Modifier.padding(horizontal = 16.dp)
+            Modifier
+                .padding(horizontal = 16.dp)
+                .verticalScroll(rememberScrollState())
         ) {
+
             CategoryList()
 
             Text(
@@ -40,6 +46,9 @@ fun HomeScreen() {
                 color = Color.White,
                 fontWeight = FontWeight.SemiBold
             )
+
+            NFTList()
+
         }
     }
 }
