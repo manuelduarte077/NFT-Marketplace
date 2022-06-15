@@ -20,9 +20,10 @@ import androidx.compose.ui.unit.sp
 import com.getnerdify.nftmarketplace.R
 import com.getnerdify.nftmarketplace.ui.theme.NFTMarketplaceTheme
 
-
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(
+    navigateAction: () -> Unit
+) {
     Scaffold {
         Box {
             Image(
@@ -42,7 +43,7 @@ fun OnBoardingScreen() {
                     fontSize = 36.sp,
                     fontWeight = FontWeight.Black
                 )
-                Spacer(Modifier.fillMaxSize(0.65f))
+                Spacer(Modifier.fillMaxSize(0.58f))
                 Card(
                     elevation = 4.dp,
                     modifier = Modifier
@@ -77,7 +78,7 @@ fun OnBoardingScreen() {
                         )
                         Spacer(modifier = Modifier.padding(bottom = 27.dp))
                         Button(
-                            onClick = { /*TODO*/ },
+                            onClick = navigateAction,
                             shape = RoundedCornerShape(percent = 50),
                             modifier = Modifier.border(
                                 width = 1.dp,
@@ -112,6 +113,9 @@ fun OnBoardingScreen() {
 @Preview
 fun PreviewMainScreen (){
     NFTMarketplaceTheme {
-        OnBoardingScreen()
+        OnBoardingScreen{
+            //Navigate to the next screen
+
+        }
     }
 }
